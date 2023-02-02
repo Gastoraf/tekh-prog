@@ -1,15 +1,17 @@
+import Entity.Exam;
+import Entity.Testing;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class Main {
 
     static Logger LOGGER;
     static {
-        try(FileInputStream ins = new FileInputStream("D:\\Study\\TekhProg\\tekh-prog\\lab1_CSV\\log.config")){ //
+        try(FileInputStream ins = new FileInputStream(".\\log.config")){ //
             LogManager.getLogManager().readConfiguration(ins);
             LOGGER = Logger.getLogger(Main.class.getName());
         }catch (Exception ignore){
@@ -21,8 +23,10 @@ public class Main {
 
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("person.txt")))
         {
-            LOGGER.log(Level.INFO,"Начало main, создаем лист с типизацией Integers");
+            LOGGER.log(Level.WARNING,"Начало main, создаем лист с типизацией Integers");
 
+            Exam exam = new Exam();
+            exam.
             Person p = new Person("Sam", 33, 178, true);
             oos.writeObject(p);
         }
