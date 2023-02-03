@@ -1,10 +1,17 @@
 package Entity;
 
+import java.util.Date;
+
 public class Exam extends Testing {
 
     private int numberOfTickets;
-    private int grade;
-    private String type;
+    private String typeOfAssessment;
+
+    public Exam(String teacherName, Date dateTesting, int numberAudience, int numberOfTickets, String typeOfAssessment) {
+        super(teacherName, dateTesting, numberAudience);
+        this.numberOfTickets = numberOfTickets;
+        this.typeOfAssessment = typeOfAssessment;
+    }
 
     public int getNumberOfTickets() {
         return numberOfTickets;
@@ -14,19 +21,12 @@ public class Exam extends Testing {
         this.numberOfTickets = numberOfTickets;
     }
 
-    public int getGrade() {
-        return grade;
+    public String getTypeOfAssessment() {
+        return typeOfAssessment;
     }
 
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setTypeOfAssessment(String typeOfAssessment) {
+        this.typeOfAssessment = typeOfAssessment;
     }
 
-    public boolean isHavePractice() {
-        return havePractice;
-    }
-
-    public void setHavePractice(boolean havePractice) {
-        this.havePractice = havePractice;
-    }
 }

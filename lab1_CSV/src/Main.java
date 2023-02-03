@@ -1,9 +1,13 @@
 import Entity.Exam;
 import Entity.Testing;
+import Service.CreditService;
+import Service.CsvReaderService;
+import Service.ExamService;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.*;
 
@@ -20,13 +24,23 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        LOGGER.log(Level.WARNING,"Начало main, создаем CsvReaderService");
+
+        CsvReaderService  csvReaderService = new CsvReaderService();
+        CreditService creditService = new CreditService();
+        ExamService examService = new ExamService();
+        String filePath = "C:\\\\Users\\\\Alexey.Rudianov\\\\Desktop\\\\Study.csv";
+
+        HashMap<Integer, String[]> dats = csvReaderService.getData(filePath, LOGGER);
+
+        creditService.saveList(dats);
+
 
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("person.txt")))
         {
-            LOGGER.log(Level.WARNING,"Начало main, создаем лист с типизацией Integers");
 
-            Exam exam = new Exam();
-            exam.
+
+//            Testing testing = new Exam(); --------------нужно использовать
             Person p = new Person("Sam", 33, 178, true);
             oos.writeObject(p);
         }

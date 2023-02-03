@@ -8,6 +8,11 @@ public abstract class Testing {
     private Date dateTesting;
     private int numberAudience;
 
+    public Testing(String teacherName, Date dateTesting, int numberAudience) {
+        this.teacherName = teacherName;
+        this.dateTesting = dateTesting;
+        this.numberAudience = numberAudience;
+    }
 
     public String getTeacherName() {
         return teacherName;
